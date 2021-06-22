@@ -28,7 +28,6 @@
     #define yylex(x) scanner->lex(x)
 }
  
-%token              EOL LPAREN RPAREN
 %token <long long>  INT
 %token <double>     FLT
 %token <char>       INTVAR FLTVAR
