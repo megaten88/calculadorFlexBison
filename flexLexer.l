@@ -31,7 +31,7 @@ fltvar          ([[:lower:]])
 "**"            return Parser::token::EXPONENT;
 "="             return Parser::token::ASSIGN;
 \n              return Parser::token::EOL;
-.               /* no action on unmatched input */
+.               
  
 %%
  

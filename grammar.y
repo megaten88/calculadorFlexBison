@@ -20,18 +20,18 @@
     namespace calculator {
         class Scanner;
     }
-} // %code requires
+}
  
 %code
 {
     #include "InputScanner.hpp"
     #define yylex(x) scanner->lex(x)
 }
- 
-%token              EOL LPAREN RPAREN
+
 %token <long long>  INT
 %token <double>     FLT
 %token <char>       INTVAR FLTVAR
+%token              EOL
  
 %nterm <long long>  iexp
 %nterm <double>     fexp
@@ -58,6 +58,7 @@ lines   : %empty
  
 line    : EOL                       { std::cerr << "Ingrese una expresión.\n"; }
         | iexp EOL                  { std::cout << "Resultado:" << $1 << '\n'; }
+        | fexp EOL                  { std::cout << "Resultado:" << $1 << '\n'; }
         | INTVAR ASSIGN iexp EOL    { ivars[$1 - 'A'] = $3; }
         | FLTVAR ASSIGN fexp EOL    { fvars[$1 - 'a'] = $3; }
         | error EOL                 { yyerrok; }
@@ -74,17 +75,27 @@ iexp    : INT                       { $$ = $1; }
         ;
  
 fexp    : FLT                       { $$ = $1; }
+        | fexp PLUS iexp            { $$ = $1 + (double)$3; }
+        | fexp MINUS iexp           { $$ = $1 - (double)$3; }
+        | fexp MULTIPLY iexp        { $$ = $1 * (double)$3; }
+        | fexp DIVIDE iexp          { $$ = $1 / ((double)$3); }
+        | fexp EXPONENT iexp        { $$ = pow($1, $3); }
         | fexp PLUS fexp            { $$ = $1 + $3; }
         | fexp MINUS fexp           { $$ = $1 - $3; }
         | fexp MULTIPLY fexp        { $$ = $1 * $3; }
         | fexp DIVIDE fexp          { $$ = $1 / $3; }
         | fexp EXPONENT fexp        { $$ = pow($1, $3); }
+        | iexp PLUS fexp            { $$ = (double)$1 + $3; }
+        | iexp MINUS fexp           { $$ = (double)$1 - $3; }
+        | iexp MULTIPLY fexp        { $$ = (double)$1 * $3; }
+        | iexp DIVIDE fexp          { $$ = (double)$1 / $3; }
+        | iexp EXPONENT fexp        { $$ = pow((double)$1, $3); }
         | MINUS fexp %prec UMINUS   { $$ = -$2; }
         | FLTVAR                    { $$ = fvars[$1 - 'a']; }
         ;
- 
+
 %%
  
 void calculator::Parser::error(const std::string& msg) {
-    std::cerr << "Algo ocurrió." << '\n';
+    std::cerr << "Algo ocurrió." << msg << '\n';
 }

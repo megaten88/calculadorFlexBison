@@ -666,7 +666,7 @@ return Parser::token::EOL;
 case 12:
 YY_RULE_SETUP
 #line 35 "flexLexer.l"
-/* no action on unmatched input */
+
 	YY_BREAK
 case 13:
 YY_RULE_SETUP

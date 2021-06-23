@@ -167,18 +167,18 @@ namespace calculator {
   {
     switch (this->type_get ())
     {
-      case 8: // INTVAR
-      case 9: // FLTVAR
+      case 5: // INTVAR
+      case 6: // FLTVAR
         value.move< char > (std::move (that.value));
         break;
 
-      case 7: // FLT
-      case 19: // fexp
+      case 4: // FLT
+      case 17: // fexp
         value.move< double > (std::move (that.value));
         break;
 
-      case 6: // INT
-      case 18: // iexp
+      case 3: // INT
+      case 16: // iexp
         value.move< long long > (std::move (that.value));
         break;
 
@@ -196,18 +196,18 @@ namespace calculator {
   {
     switch (this->type_get ())
     {
-      case 8: // INTVAR
-      case 9: // FLTVAR
+      case 5: // INTVAR
+      case 6: // FLTVAR
         value.copy< char > (YY_MOVE (that.value));
         break;
 
-      case 7: // FLT
-      case 19: // fexp
+      case 4: // FLT
+      case 17: // fexp
         value.copy< double > (YY_MOVE (that.value));
         break;
 
-      case 6: // INT
-      case 18: // iexp
+      case 3: // INT
+      case 16: // iexp
         value.copy< long long > (YY_MOVE (that.value));
         break;
 
@@ -233,18 +233,18 @@ namespace calculator {
     super_type::move (s);
     switch (this->type_get ())
     {
-      case 8: // INTVAR
-      case 9: // FLTVAR
+      case 5: // INTVAR
+      case 6: // FLTVAR
         value.move< char > (YY_MOVE (s.value));
         break;
 
-      case 7: // FLT
-      case 19: // fexp
+      case 4: // FLT
+      case 17: // fexp
         value.move< double > (YY_MOVE (s.value));
         break;
 
-      case 6: // INT
-      case 18: // iexp
+      case 3: // INT
+      case 16: // iexp
         value.move< long long > (YY_MOVE (s.value));
         break;
 
@@ -338,18 +338,18 @@ namespace calculator {
   {
     switch (that.type_get ())
     {
-      case 8: // INTVAR
-      case 9: // FLTVAR
+      case 5: // INTVAR
+      case 6: // FLTVAR
         value.YY_MOVE_OR_COPY< char > (YY_MOVE (that.value));
         break;
 
-      case 7: // FLT
-      case 19: // fexp
+      case 4: // FLT
+      case 17: // fexp
         value.YY_MOVE_OR_COPY< double > (YY_MOVE (that.value));
         break;
 
-      case 6: // INT
-      case 18: // iexp
+      case 3: // INT
+      case 16: // iexp
         value.YY_MOVE_OR_COPY< long long > (YY_MOVE (that.value));
         break;
 
@@ -368,18 +368,18 @@ namespace calculator {
   {
     switch (that.type_get ())
     {
-      case 8: // INTVAR
-      case 9: // FLTVAR
+      case 5: // INTVAR
+      case 6: // FLTVAR
         value.move< char > (YY_MOVE (that.value));
         break;
 
-      case 7: // FLT
-      case 19: // fexp
+      case 4: // FLT
+      case 17: // fexp
         value.move< double > (YY_MOVE (that.value));
         break;
 
-      case 6: // INT
-      case 18: // iexp
+      case 3: // INT
+      case 16: // iexp
         value.move< long long > (YY_MOVE (that.value));
         break;
 
@@ -398,18 +398,18 @@ namespace calculator {
     state = that.state;
     switch (that.type_get ())
     {
-      case 8: // INTVAR
-      case 9: // FLTVAR
+      case 5: // INTVAR
+      case 6: // FLTVAR
         value.copy< char > (that.value);
         break;
 
-      case 7: // FLT
-      case 19: // fexp
+      case 4: // FLT
+      case 17: // fexp
         value.copy< double > (that.value);
         break;
 
-      case 6: // INT
-      case 18: // iexp
+      case 3: // INT
+      case 16: // iexp
         value.copy< long long > (that.value);
         break;
 
@@ -426,18 +426,18 @@ namespace calculator {
     state = that.state;
     switch (that.type_get ())
     {
-      case 8: // INTVAR
-      case 9: // FLTVAR
+      case 5: // INTVAR
+      case 6: // FLTVAR
         value.move< char > (that.value);
         break;
 
-      case 7: // FLT
-      case 19: // fexp
+      case 4: // FLT
+      case 17: // fexp
         value.move< double > (that.value);
         break;
 
-      case 6: // INT
-      case 18: // iexp
+      case 3: // INT
+      case 16: // iexp
         value.move< long long > (that.value);
         break;
 
@@ -685,18 +685,18 @@ namespace calculator {
          when using variants.  */
       switch (yyr1_[yyn])
     {
-      case 8: // INTVAR
-      case 9: // FLTVAR
+      case 5: // INTVAR
+      case 6: // FLTVAR
         yylhs.value.emplace< char > ();
         break;
 
-      case 7: // FLT
-      case 19: // fexp
+      case 4: // FLT
+      case 17: // fexp
         yylhs.value.emplace< double > ();
         break;
 
-      case 6: // INT
-      case 18: // iexp
+      case 3: // INT
+      case 16: // iexp
         yylhs.value.emplace< long long > ();
         break;
 
@@ -716,7 +716,7 @@ namespace calculator {
             {
   case 4:
 #line 59 "grammar.y"
-                                    { std::cerr << "Ingrese una expresion.\n"; }
+                                    { std::cerr << "Ingrese una expresión.\n"; }
 #line 721 "Parser.cpp"
     break;
 
@@ -728,120 +728,186 @@ namespace calculator {
 
   case 6:
 #line 61 "grammar.y"
-                                    { ivars[yystack_[3].value.as < char > () - 'A'] = yystack_[1].value.as < long long > (); }
+                                    { std::cout << "Resultado:" << yystack_[1].value.as < double > () << '\n'; }
 #line 733 "Parser.cpp"
     break;
 
   case 7:
 #line 62 "grammar.y"
-                                    { fvars[yystack_[3].value.as < char > () - 'a'] = yystack_[1].value.as < double > (); }
+                                    { ivars[yystack_[3].value.as < char > () - 'A'] = yystack_[1].value.as < long long > (); }
 #line 739 "Parser.cpp"
     break;
 
   case 8:
 #line 63 "grammar.y"
-                                    { yyerrok; }
+                                    { fvars[yystack_[3].value.as < char > () - 'a'] = yystack_[1].value.as < double > (); }
 #line 745 "Parser.cpp"
     break;
 
   case 9:
-#line 66 "grammar.y"
-                                    { yylhs.value.as < long long > () = yystack_[0].value.as < long long > (); }
+#line 64 "grammar.y"
+                                    { yyerrok; }
 #line 751 "Parser.cpp"
     break;
 
   case 10:
 #line 67 "grammar.y"
-                                    { yylhs.value.as < long long > () = yystack_[2].value.as < long long > () + yystack_[0].value.as < long long > (); }
+                                    { yylhs.value.as < long long > () = yystack_[0].value.as < long long > (); }
 #line 757 "Parser.cpp"
     break;
 
   case 11:
 #line 68 "grammar.y"
-                                    { yylhs.value.as < long long > () = yystack_[2].value.as < long long > () - yystack_[0].value.as < long long > (); }
+                                    { yylhs.value.as < long long > () = yystack_[2].value.as < long long > () + yystack_[0].value.as < long long > (); }
 #line 763 "Parser.cpp"
     break;
 
   case 12:
 #line 69 "grammar.y"
-                                    { yylhs.value.as < long long > () = yystack_[2].value.as < long long > () * yystack_[0].value.as < long long > (); }
+                                    { yylhs.value.as < long long > () = yystack_[2].value.as < long long > () - yystack_[0].value.as < long long > (); }
 #line 769 "Parser.cpp"
     break;
 
   case 13:
 #line 70 "grammar.y"
-                                    { yylhs.value.as < long long > () = yystack_[2].value.as < long long > () / yystack_[0].value.as < long long > (); }
+                                    { yylhs.value.as < long long > () = yystack_[2].value.as < long long > () * yystack_[0].value.as < long long > (); }
 #line 775 "Parser.cpp"
     break;
 
   case 14:
 #line 71 "grammar.y"
-                                    { yylhs.value.as < long long > () = pow(yystack_[2].value.as < long long > (), yystack_[0].value.as < long long > ()); }
+                                    { yylhs.value.as < long long > () = yystack_[2].value.as < long long > () / yystack_[0].value.as < long long > (); }
 #line 781 "Parser.cpp"
     break;
 
   case 15:
 #line 72 "grammar.y"
-                                    { yylhs.value.as < long long > () = -yystack_[0].value.as < long long > (); }
+                                    { yylhs.value.as < long long > () = pow(yystack_[2].value.as < long long > (), yystack_[0].value.as < long long > ()); }
 #line 787 "Parser.cpp"
     break;
 
   case 16:
 #line 73 "grammar.y"
-                                    { yylhs.value.as < long long > () = ivars[yystack_[0].value.as < char > () - 'A']; }
+                                    { yylhs.value.as < long long > () = -yystack_[0].value.as < long long > (); }
 #line 793 "Parser.cpp"
     break;
 
   case 17:
-#line 76 "grammar.y"
-                                    { yylhs.value.as < double > () = yystack_[0].value.as < double > (); }
+#line 74 "grammar.y"
+                                    { yylhs.value.as < long long > () = ivars[yystack_[0].value.as < char > () - 'A']; }
 #line 799 "Parser.cpp"
     break;
 
   case 18:
 #line 77 "grammar.y"
-                                    { yylhs.value.as < double > () = yystack_[2].value.as < double > () + yystack_[0].value.as < double > (); }
+                                    { yylhs.value.as < double > () = yystack_[0].value.as < double > (); }
 #line 805 "Parser.cpp"
     break;
 
   case 19:
 #line 78 "grammar.y"
-                                    { yylhs.value.as < double > () = yystack_[2].value.as < double > () - yystack_[0].value.as < double > (); }
+                                    { yylhs.value.as < double > () = yystack_[2].value.as < double > () + (double)yystack_[0].value.as < long long > (); }
 #line 811 "Parser.cpp"
     break;
 
   case 20:
 #line 79 "grammar.y"
-                                    { yylhs.value.as < double > () = yystack_[2].value.as < double > () * yystack_[0].value.as < double > (); }
+                                    { yylhs.value.as < double > () = yystack_[2].value.as < double > () - (double)yystack_[0].value.as < long long > (); }
 #line 817 "Parser.cpp"
     break;
 
   case 21:
 #line 80 "grammar.y"
-                                    { yylhs.value.as < double > () = yystack_[2].value.as < double > () / yystack_[0].value.as < double > (); }
+                                    { yylhs.value.as < double > () = yystack_[2].value.as < double > () * (double)yystack_[0].value.as < long long > (); }
 #line 823 "Parser.cpp"
     break;
 
   case 22:
 #line 81 "grammar.y"
-                                    { yylhs.value.as < double > () = pow(yystack_[2].value.as < double > (), yystack_[0].value.as < double > ()); }
+                                    { yylhs.value.as < double > () = yystack_[2].value.as < double > () / ((double)yystack_[0].value.as < long long > ()); }
 #line 829 "Parser.cpp"
     break;
 
   case 23:
 #line 82 "grammar.y"
-                                    { yylhs.value.as < double > () = -yystack_[0].value.as < double > (); }
+                                    { yylhs.value.as < double > () = pow(yystack_[2].value.as < double > (), yystack_[0].value.as < long long > ()); }
 #line 835 "Parser.cpp"
     break;
 
   case 24:
 #line 83 "grammar.y"
-                                    { yylhs.value.as < double > () = fvars[yystack_[0].value.as < char > () - 'a']; }
+                                    { yylhs.value.as < double > () = yystack_[2].value.as < double > () + yystack_[0].value.as < double > (); }
 #line 841 "Parser.cpp"
     break;
 
+  case 25:
+#line 84 "grammar.y"
+                                    { yylhs.value.as < double > () = yystack_[2].value.as < double > () - yystack_[0].value.as < double > (); }
+#line 847 "Parser.cpp"
+    break;
 
-#line 845 "Parser.cpp"
+  case 26:
+#line 85 "grammar.y"
+                                    { yylhs.value.as < double > () = yystack_[2].value.as < double > () * yystack_[0].value.as < double > (); }
+#line 853 "Parser.cpp"
+    break;
+
+  case 27:
+#line 86 "grammar.y"
+                                    { yylhs.value.as < double > () = yystack_[2].value.as < double > () / yystack_[0].value.as < double > (); }
+#line 859 "Parser.cpp"
+    break;
+
+  case 28:
+#line 87 "grammar.y"
+                                    { yylhs.value.as < double > () = pow(yystack_[2].value.as < double > (), yystack_[0].value.as < double > ()); }
+#line 865 "Parser.cpp"
+    break;
+
+  case 29:
+#line 88 "grammar.y"
+                                    { yylhs.value.as < double > () = (double)yystack_[2].value.as < long long > () + yystack_[0].value.as < double > (); }
+#line 871 "Parser.cpp"
+    break;
+
+  case 30:
+#line 89 "grammar.y"
+                                    { yylhs.value.as < double > () = (double)yystack_[2].value.as < long long > () - yystack_[0].value.as < double > (); }
+#line 877 "Parser.cpp"
+    break;
+
+  case 31:
+#line 90 "grammar.y"
+                                    { yylhs.value.as < double > () = (double)yystack_[2].value.as < long long > () * yystack_[0].value.as < double > (); }
+#line 883 "Parser.cpp"
+    break;
+
+  case 32:
+#line 91 "grammar.y"
+                                    { yylhs.value.as < double > () = (double)yystack_[2].value.as < long long > () / yystack_[0].value.as < double > (); }
+#line 889 "Parser.cpp"
+    break;
+
+  case 33:
+#line 92 "grammar.y"
+                                    { yylhs.value.as < double > () = pow((double)yystack_[2].value.as < long long > (), yystack_[0].value.as < double > ()); }
+#line 895 "Parser.cpp"
+    break;
+
+  case 34:
+#line 93 "grammar.y"
+                                    { yylhs.value.as < double > () = -yystack_[0].value.as < double > (); }
+#line 901 "Parser.cpp"
+    break;
+
+  case 35:
+#line 94 "grammar.y"
+                                    { yylhs.value.as < double > () = fvars[yystack_[0].value.as < char > () - 'a']; }
+#line 907 "Parser.cpp"
+    break;
+
+
+#line 911 "Parser.cpp"
 
             default:
               break;
@@ -1018,90 +1084,106 @@ namespace calculator {
   }
 
 
-  const signed char Parser::yypact_ninf_ = -26;
+  const signed char Parser::yypact_ninf_ = -10;
 
   const signed char Parser::yytable_ninf_ = -1;
 
   const signed char
   Parser::yypact_[] =
   {
-     -26,    53,   -26,    -1,   -26,   -26,    -2,     6,    -5,    18,
-     -26,   -26,    -5,    -3,   -26,   -11,   -26,    -5,    -5,    -5,
-      -5,    -5,    30,   -26,   -26,    -3,    36,     4,     4,   -11,
-     -11,   -11,   -26,    21,   -26,    -3,    -3,    -3,    -3,    -3,
-      22,    22,    21,    21,    21
+     -10,    54,   -10,     0,   -10,   -10,     1,     2,   -10,    -2,
+      56,    62,   -10,   -10,    22,    -2,   -10,   -10,    -3,     3,
+     -10,    -2,    -2,    -2,    -2,    -2,   -10,    -2,    -2,    -2,
+      -2,    -2,    22,    68,    80,    74,    17,    84,    17,    84,
+      -3,     3,    -3,     3,    -3,     3,    17,    84,    17,    84,
+      -3,     3,    -3,     3,    -3,     3,    12,   -10,    22,    22,
+      22,    22,    22,   -10,    88,    88,    12,    12,    12
   };
 
   const signed char
   Parser::yydefact_[] =
   {
-       2,     0,     1,     0,     4,     9,    16,     0,     0,     0,
-       3,     8,     0,     0,    16,    15,     5,     0,     0,     0,
-       0,     0,     0,    17,    24,     0,     0,    10,    11,    12,
-      13,    14,     6,    23,     7,     0,     0,     0,     0,     0,
-      18,    19,    20,    21,    22
+       2,     0,     1,     0,    10,    18,    17,    35,     4,     0,
+       0,     0,     3,     9,     0,     0,    17,    35,    16,    34,
+       5,     0,     0,     0,     0,     0,     6,     0,     0,     0,
+       0,     0,     0,     0,     0,     0,    11,    29,    12,    30,
+      13,    31,    14,    32,    15,    33,    19,    24,    20,    25,
+      21,    26,    22,    27,    23,    28,    16,     7,     0,     0,
+       0,     0,     0,     8,    11,    12,    13,    14,    15
   };
 
   const signed char
   Parser::yypgoto_[] =
   {
-     -26,     7,   -25,   -26,   -26
+     -10,    -9,    15,   -10,   -10
   };
 
   const signed char
   Parser::yydefgoto_[] =
   {
-      -1,     9,    26,     1,    10
+      -1,    10,    11,     1,    12
   };
 
   const signed char
   Parser::yytable_[] =
   {
-      33,     5,    11,    14,    23,    21,    24,     8,    12,    25,
-      40,    41,    42,    43,    44,    15,    13,    19,    20,    22,
-      21,    16,     0,     0,    27,    28,    29,    30,    31,    17,
-      18,    19,    20,    32,    21,    37,    38,    39,    39,    34,
-       0,    17,    18,    19,    20,     0,    21,    35,    36,    37,
-      38,     0,    39,     2,     3,     0,     4,     0,     0,     5,
-       0,     6,     7,     0,     0,     8
+      18,     4,     5,    16,    17,    33,    34,    13,     9,    14,
+      15,    25,    36,    38,    40,    42,    44,    31,    46,    48,
+      50,    52,    54,    56,    19,     4,    62,    16,    23,    24,
+      35,    25,    32,     0,     0,     0,    37,    39,    41,    43,
+      45,     0,    47,    49,    51,    53,    55,     0,     0,    64,
+      65,    66,    67,    68,     2,     3,     0,     4,     5,     6,
+       7,     8,     0,    20,     9,    21,    22,    23,    24,    26,
+      25,    27,    28,    29,    30,    57,    31,    58,    59,    60,
+      61,    63,    62,    27,    28,    29,    30,     0,    31,    21,
+      22,    23,    24,     0,    25,    29,    30,     0,    31,    60,
+      61,     0,    62
   };
 
   const signed char
   Parser::yycheck_[] =
   {
-      25,     6,     3,     8,     7,    16,     9,    12,    10,    12,
-      35,    36,    37,    38,    39,     8,    10,    13,    14,    12,
-      16,     3,    -1,    -1,    17,    18,    19,    20,    21,    11,
-      12,    13,    14,     3,    16,    13,    14,    16,    16,     3,
-      -1,    11,    12,    13,    14,    -1,    16,    11,    12,    13,
-      14,    -1,    16,     0,     1,    -1,     3,    -1,    -1,     6,
-      -1,     8,     9,    -1,    -1,    12
+       9,     3,     4,     5,     6,    14,    15,     7,    10,     8,
+       8,    14,    21,    22,    23,    24,    25,    14,    27,    28,
+      29,    30,    31,    32,     9,     3,    14,     5,    11,    12,
+      15,    14,    10,    -1,    -1,    -1,    21,    22,    23,    24,
+      25,    -1,    27,    28,    29,    30,    31,    -1,    -1,    58,
+      59,    60,    61,    62,     0,     1,    -1,     3,     4,     5,
+       6,     7,    -1,     7,    10,     9,    10,    11,    12,     7,
+      14,     9,    10,    11,    12,     7,    14,     9,    10,    11,
+      12,     7,    14,     9,    10,    11,    12,    -1,    14,     9,
+      10,    11,    12,    -1,    14,    11,    12,    -1,    14,    11,
+      12,    -1,    14
   };
 
   const signed char
   Parser::yystos_[] =
   {
-       0,    20,     0,     1,     3,     6,     8,     9,    12,    18,
-      21,     3,    10,    10,     8,    18,     3,    11,    12,    13,
-      14,    16,    18,     7,     9,    12,    19,    18,    18,    18,
-      18,    18,     3,    19,     3,    11,    12,    13,    14,    16,
-      19,    19,    19,    19,    19
+       0,    18,     0,     1,     3,     4,     5,     6,     7,    10,
+      16,    17,    19,     7,     8,     8,     5,     6,    16,    17,
+       7,     9,    10,    11,    12,    14,     7,     9,    10,    11,
+      12,    14,    10,    16,    16,    17,    16,    17,    16,    17,
+      16,    17,    16,    17,    16,    17,    16,    17,    16,    17,
+      16,    17,    16,    17,    16,    17,    16,     7,     9,    10,
+      11,    12,    14,     7,    16,    16,    16,    16,    16
   };
 
   const signed char
   Parser::yyr1_[] =
   {
-       0,    17,    20,    20,    21,    21,    21,    21,    21,    18,
-      18,    18,    18,    18,    18,    18,    18,    19,    19,    19,
-      19,    19,    19,    19,    19
+       0,    15,    18,    18,    19,    19,    19,    19,    19,    19,
+      16,    16,    16,    16,    16,    16,    16,    16,    17,    17,
+      17,    17,    17,    17,    17,    17,    17,    17,    17,    17,
+      17,    17,    17,    17,    17,    17
   };
 
   const signed char
   Parser::yyr2_[] =
   {
-       0,     2,     0,     2,     1,     2,     4,     4,     2,     1,
-       3,     3,     3,     3,     3,     2,     1,     1,     3,     3,
-       3,     3,     3,     2,     1
+       0,     2,     0,     2,     1,     2,     2,     4,     4,     2,
+       1,     3,     3,     3,     3,     3,     2,     1,     1,     3,
+       3,     3,     3,     3,     3,     3,     3,     3,     3,     3,
+       3,     3,     3,     3,     2,     1
   };
 
 
@@ -1111,18 +1193,19 @@ namespace calculator {
   const char*
   const Parser::yytname_[] =
   {
-  "$end", "error", "$undefined", "EOL", "LPAREN", "RPAREN", "INT", "FLT",
-  "INTVAR", "FLTVAR", "ASSIGN", "PLUS", "MINUS", "MULTIPLY", "DIVIDE",
-  "UMINUS", "EXPONENT", "$accept", "iexp", "fexp", "lines", "line", YY_NULLPTR
+  "$end", "error", "$undefined", "INT", "FLT", "INTVAR", "FLTVAR", "EOL",
+  "ASSIGN", "PLUS", "MINUS", "MULTIPLY", "DIVIDE", "UMINUS", "EXPONENT",
+  "$accept", "iexp", "fexp", "lines", "line", YY_NULLPTR
   };
 
 
   const signed char
   Parser::yyrline_[] =
   {
-       0,    55,    55,    56,    59,    60,    61,    62,    63,    66,
-      67,    68,    69,    70,    71,    72,    73,    76,    77,    78,
-      79,    80,    81,    82,    83
+       0,    55,    55,    56,    59,    60,    61,    62,    63,    64,
+      67,    68,    69,    70,    71,    72,    73,    74,    77,    78,
+      79,    80,    81,    82,    83,    84,    85,    86,    87,    88,
+      89,    90,    91,    92,    93,    94
   };
 
   // Print the state stack on the debug stream.
@@ -1189,10 +1272,9 @@ namespace calculator {
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
-       5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
-      15,    16
+       5,     6,     7,     8,     9,    10,    11,    12,    13,    14
     };
-    const int user_token_number_max_ = 271;
+    const int user_token_number_max_ = 269;
 
     if (t <= 0)
       return yyeof_;
@@ -1204,11 +1286,11 @@ namespace calculator {
 
 #line 14 "grammar.y"
 } // calculator
-#line 1208 "Parser.cpp"
+#line 1290 "Parser.cpp"
 
-#line 86 "grammar.y"
+#line 97 "grammar.y"
 
  
 void calculator::Parser::error(const std::string& msg) {
-    std::cerr << "Something went wrong" << '\n';
+    std::cerr << "Algo ocurrió." << msg << '\n';
 }
