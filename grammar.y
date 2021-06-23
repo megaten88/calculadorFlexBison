@@ -27,7 +27,11 @@
     #include "InputScanner.hpp"
     #define yylex(x) scanner->lex(x)
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 38aef120a6eb6bd3650bc8003a383cbf599f9a74
 %token <long long>  INT
 %token <double>     FLT
 %token <char>       INTVAR FLTVAR
