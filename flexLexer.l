@@ -30,6 +30,8 @@ fltvar          ([[:lower:]])
 "/"             return Parser::token::DIVIDE;
 "**"            return Parser::token::EXPONENT;
 "="             return Parser::token::ASSIGN;
+"("             return Parser::token::LPAREN; 
+")"             return Parser::token::RPAREN;
 \n              return Parser::token::EOL;
 .               
  

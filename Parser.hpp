@@ -421,13 +421,15 @@ namespace calculator {
         INTVAR = 260,
         FLTVAR = 261,
         EOL = 262,
-        ASSIGN = 263,
-        PLUS = 264,
-        MINUS = 265,
-        MULTIPLY = 266,
-        DIVIDE = 267,
-        UMINUS = 268,
-        EXPONENT = 269
+        LPAREN = 263,
+        RPAREN = 264,
+        ASSIGN = 265,
+        PLUS = 266,
+        MINUS = 267,
+        MULTIPLY = 268,
+        DIVIDE = 269,
+        UMINUS = 270,
+        EXPONENT = 271
       };
     };
 
@@ -540,12 +542,12 @@ switch (yytype)
         break;
 
       case 4: // FLT
-      case 17: // fexp
+      case 19: // fexp
         value.template destroy< double > ();
         break;
 
       case 3: // INT
-      case 16: // iexp
+      case 18: // iexp
         value.template destroy< long long > ();
         break;
 
@@ -622,13 +624,13 @@ switch (yytype)
       symbol_type (int tok)
         : super_type(token_type (tok))
       {
-        YY_ASSERT (tok == 0 || tok == token::EOL || tok == token::ASSIGN || tok == token::PLUS || tok == token::MINUS || tok == token::MULTIPLY || tok == token::DIVIDE || tok == token::UMINUS || tok == token::EXPONENT);
+        YY_ASSERT (tok == 0 || tok == token::EOL || tok == token::LPAREN || tok == token::RPAREN || tok == token::ASSIGN || tok == token::PLUS || tok == token::MINUS || tok == token::MULTIPLY || tok == token::DIVIDE || tok == token::UMINUS || tok == token::EXPONENT);
       }
 #else
       symbol_type (int tok)
         : super_type(token_type (tok))
       {
-        YY_ASSERT (tok == 0 || tok == token::EOL || tok == token::ASSIGN || tok == token::PLUS || tok == token::MINUS || tok == token::MULTIPLY || tok == token::DIVIDE || tok == token::UMINUS || tok == token::EXPONENT);
+        YY_ASSERT (tok == 0 || tok == token::EOL || tok == token::LPAREN || tok == token::RPAREN || tok == token::ASSIGN || tok == token::PLUS || tok == token::MINUS || tok == token::MULTIPLY || tok == token::DIVIDE || tok == token::UMINUS || tok == token::EXPONENT);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
@@ -779,6 +781,36 @@ switch (yytype)
       make_EOL ()
       {
         return symbol_type (token::EOL);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_LPAREN ()
+      {
+        return symbol_type (token::LPAREN);
+      }
+#else
+      static
+      symbol_type
+      make_LPAREN ()
+      {
+        return symbol_type (token::LPAREN);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_RPAREN ()
+      {
+        return symbol_type (token::RPAREN);
+      }
+#else
+      static
+      symbol_type
+      make_RPAREN ()
+      {
+        return symbol_type (token::RPAREN);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
@@ -1189,10 +1221,10 @@ switch (yytype)
     enum
     {
       yyeof_ = 0,
-      yylast_ = 102,     ///< Last index in yytable_.
+      yylast_ = 132,     ///< Last index in yytable_.
       yynnts_ = 5,  ///< Number of nonterminal symbols.
       yyfinal_ = 2, ///< Termination state number.
-      yyntokens_ = 15  ///< Number of tokens.
+      yyntokens_ = 17  ///< Number of tokens.
     };
 
 
@@ -1203,7 +1235,7 @@ switch (yytype)
 
 #line 14 "grammar.y"
 } // calculator
-#line 1207 "Parser.hpp"
+#line 1239 "Parser.hpp"
 
 
 

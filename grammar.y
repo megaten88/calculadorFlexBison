@@ -27,16 +27,14 @@
     #include "InputScanner.hpp"
     #define yylex(x) scanner->lex(x)
 }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> 38aef120a6eb6bd3650bc8003a383cbf599f9a74
 %token <long long>  INT
 %token <double>     FLT
 %token <char>       INTVAR FLTVAR
 %token              EOL
- 
+%token              LPAREN
+%token              RPAREN
+
 %nterm <long long>  iexp
 %nterm <double>     fexp
  
@@ -72,30 +70,32 @@ iexp    : INT                       { $$ = $1; }
         | iexp PLUS iexp            { $$ = $1 + $3; }
         | iexp MINUS iexp           { $$ = $1 - $3; }
         | iexp MULTIPLY iexp        { $$ = $1 * $3; }
-        | iexp DIVIDE iexp          { $$ = $1 / $3; }
+        | iexp DIVIDE iexp          { if($3==0) { std::cerr<<"No se puede dividir en 0 \n"; $$=0;} else{$$ = $1 / $3; } }
         | iexp EXPONENT iexp        { $$ = pow($1, $3); }
         | MINUS iexp %prec UMINUS   { $$ = -$2; }
         | INTVAR                    { $$ = ivars[$1 - 'A']; }
+        | LPAREN iexp RPAREN        { $$ = $2; }
         ;
  
 fexp    : FLT                       { $$ = $1; }
         | fexp PLUS iexp            { $$ = $1 + (double)$3; }
         | fexp MINUS iexp           { $$ = $1 - (double)$3; }
         | fexp MULTIPLY iexp        { $$ = $1 * (double)$3; }
-        | fexp DIVIDE iexp          { $$ = $1 / ((double)$3); }
+        | fexp DIVIDE iexp          { if($3==0) { std::cerr<<"No se puede dividir en 0 \n"; $$=0;} else{$$ = $1 / ((double)$3); } }
         | fexp EXPONENT iexp        { $$ = pow($1, $3); }
         | fexp PLUS fexp            { $$ = $1 + $3; }
         | fexp MINUS fexp           { $$ = $1 - $3; }
         | fexp MULTIPLY fexp        { $$ = $1 * $3; }
-        | fexp DIVIDE fexp          { $$ = $1 / $3; }
+        | fexp DIVIDE fexp          { if($3==0) { std::cerr<<"No se puede dividir en 0 \n"; $$=0;} else{$$ = $1 / $3; } }
         | fexp EXPONENT fexp        { $$ = pow($1, $3); }
         | iexp PLUS fexp            { $$ = (double)$1 + $3; }
         | iexp MINUS fexp           { $$ = (double)$1 - $3; }
         | iexp MULTIPLY fexp        { $$ = (double)$1 * $3; }
-        | iexp DIVIDE fexp          { $$ = (double)$1 / $3; }
+        | iexp DIVIDE fexp          { if($3==0) { std::cerr<<"No se puede dividir en 0 \n"; $$=0;} else{$$ = (double)$1 / $3; } }
         | iexp EXPONENT fexp        { $$ = pow((double)$1, $3); }
         | MINUS fexp %prec UMINUS   { $$ = -$2; }
         | FLTVAR                    { $$ = fvars[$1 - 'a']; }
+        | LPAREN fexp RPAREN        { $$ = $2; }
         ;
 
 %%
