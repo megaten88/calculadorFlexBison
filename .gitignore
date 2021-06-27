@@ -1,1 +1,3 @@
 calculator
+Parser.o
+Scanner.o
